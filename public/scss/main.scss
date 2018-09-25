@@ -1,0 +1,112 @@
+@import "config";
+@import "menu";
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  background: $primary-color;
+  color: set-text-color($primary-color);
+  height: 100%;
+  margin: 0;
+  font-family: "Space Mono", monospace;
+  line-height: 1.5;
+}
+
+// Headings
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($primary-color, 2), 0.5);
+    border-radius: 8px 8px 8px 8px;
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+.wrap-rotator {
+  color: $secondary-color;
+}
+
+main {
+  padding: 4rem;
+  // height: 100%;
+  min-height: calc(100vh - 60px);
+
+  .icons {
+    margin-top: 1rem;
+
+    a {
+      padding: 0.4rem;
+
+      &:hover {
+        color: $secondary-color;
+        @include easeOut();
+      }
+    }
+  }
+
+  &#home {
+    overflow: hidden;
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+}
+
+.blog-home {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.single-item {
+    background: lighten($primary-color, 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 5px solid;
+    box-shadow: 4px 6px 5px $secondary-color;
+}
+
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: darken($primary-color, 8);
+  color: set-text-color($primary-color);
+  height: 60px;
+  opacity: 0.8;
+}
+
+// :: MIXINS
+// --------------------------------------------------
+@mixin opacity($opacity) {
+  opacity: $opacity / 100;
+  filter: alpha(opacity=$opacity);
+}
+
+@import "mobile";
