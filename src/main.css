@@ -159,6 +159,16 @@ main {
   border-bottom: #13aaa3 5px solid;
   box-shadow: 4px 6px 5px #13aaa3; }
 
+.btn {
+  color: #ffffff;
+  background-color: transparent;
+  padding: 0.6rem;
+  border: 1px solid #13aaa3;
+  border-radius: 10px 10px 10px 10px; }
+  .btn:hover {
+    color: #ffffff;
+    border: 1px solid #ffffff; }
+
 #main-footer {
   text-align: center;
   padding: 1rem;

@@ -92,6 +92,19 @@ main {
     box-shadow: 4px 6px 5px $secondary-color;
 }
 
+.btn {
+  color: #ffffff;
+  background-color: transparent;
+  padding: 0.6rem;
+  border: 1px solid $secondary-color;
+  border-radius: 10px 10px 10px 10px;
+
+  &:hover {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+  }
+}
+
 
 #main-footer {
   text-align: center;
