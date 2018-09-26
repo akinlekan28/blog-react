@@ -164,10 +164,23 @@ main {
   background-color: transparent;
   padding: 0.6rem;
   border: 1px solid #13aaa3;
-  border-radius: 10px 10px 10px 10px; }
+  border-radius: 10px 10px 10px 10px;
+  display: block; }
   .btn:hover {
     color: #ffffff;
     border: 1px solid #ffffff; }
+
+.form-control {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  width: 60%;
+  align-content: center;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid #13aaa3; }
+  .form-control:focus {
+    border-radius: 10px 10px 10px 10px;
+    border-collapse: collapse; }
 
 #main-footer {
   text-align: center;
