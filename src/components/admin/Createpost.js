@@ -26,7 +26,7 @@ class Createpost extends Component {
         text: this.state.text
     };
 
-    database.savePost(postData)
+    database.push(postData)
   }
 
   render() {
