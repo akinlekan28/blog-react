@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {database} from '../../config';
+import { database } from "../../config";
+import sluger from "../../sluger";
 
 class Createpost extends Component {
   constructor(props) {
@@ -7,7 +8,9 @@ class Createpost extends Component {
 
     this.state = {
       title: "",
-      text: ""
+      text: "",
+      author: "",
+      slug: ""
     };
 
     this.onChange = this.onChange.bind(this);
@@ -22,11 +25,20 @@ class Createpost extends Component {
     e.preventDefault();
 
     const postData = {
-        title: this.state.title,
-        text: this.state.text
+      title: this.state.title,
+      text: this.state.text,
+      author: this.state.author,
+      slug: sluger(this.state.title)
     };
 
-    database.push(postData)
+    database.push(postData).then(
+      this.setState({
+        title: "",
+        text: "",
+        author: "",
+        slug: ""
+      })
+    );
   }
 
   render() {
@@ -38,6 +50,15 @@ class Createpost extends Component {
             placeholder="Post Title"
             name="title"
             value={this.state.title}
+            onChange={this.onChange}
+            className="form-control"
+          />
+
+          <input
+            type="text"
+            placeholder="Post Author"
+            name="author"
+            value={this.state.author}
             onChange={this.onChange}
             className="form-control"
           />
