@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   background: $primary-color;
   color: set-text-color($primary-color);
@@ -86,10 +85,10 @@ main {
 }
 
 .single-item {
-    background: lighten($primary-color, 5);
-    padding: 0.5rem;
-    border-bottom: $secondary-color 5px solid;
-    box-shadow: 4px 6px 5px $secondary-color;
+  background: lighten($primary-color, 5);
+  padding: 0.5rem;
+  border-bottom: $secondary-color 5px solid;
+  box-shadow: 4px 6px 5px $secondary-color;
 }
 
 .btn {
@@ -121,7 +120,6 @@ main {
     border-collapse: collapse;
   }
 }
-
 
 #main-footer {
   text-align: center;

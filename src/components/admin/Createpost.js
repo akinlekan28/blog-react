@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { database } from "../../config";
 import sluger from "../../sluger";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 class Createpost extends Component {
   constructor(props) {
@@ -15,11 +17,18 @@ class Createpost extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+
+  handleChange(value){
+    this.setState({ text: value })
+  }
+
+  
 
   onSubmit(e) {
     e.preventDefault();
@@ -62,14 +71,14 @@ class Createpost extends Component {
             onChange={this.onChange}
             className="form-control"
           />
-
-          <input
-            type="text"
+          <br />
+          <ReactQuill
+            modules={Createpost.modules}
+            parchment={Createpost.parchment}
             placeholder="Post Text"
-            name="text"
             value={this.state.text}
-            onChange={this.onChange}
-            className="form-control"
+            onChange={this.handleChange}
+            style={{ backgroundColor: "#ffffff", color: '#000000' }}
           />
 
           <br />
@@ -81,5 +90,34 @@ class Createpost extends Component {
     );
   }
 }
+
+Createpost.modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [{ list: "ordered" }, { list: "bullet" }],
+    ["link", "image", "video"],
+    ["clean"],
+    ["code-block"]
+  ]
+};
+
+Createpost.parchment = [
+  "header",
+  "font",
+  "size",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "list",
+  "bullet",
+  "link",
+  "image",
+  "video",
+  "code-block"
+];
 
 export default Createpost;
